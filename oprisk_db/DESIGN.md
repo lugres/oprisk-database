@@ -11,26 +11,26 @@ The database for a risk management software includes necessary core entities to 
 What is included in the scope:
 
 * Users and organization:
-* * Users, including their unique usernames, email addresses, roles, and associated business units.
-* * Business units, stored hierarchically to reflect company organizational structures.
-* * Business processes, also stored hierarchically and linked to business units, to capture operational workflows and responsibilities.
-* * Products, linked to business units.
+  * Users, including their unique usernames, email addresses, roles, and associated business units.
+  * Business units, stored hierarchically to reflect company organizational structures.
+  * Business processes, also stored hierarchically and linked to business units, to capture operational workflows and responsibilities.
+  * Products, linked to business units.
 * Core risk-related entities:
-* * Incidents (loss event): represent operational risk events, including title, description, occurrence and discovery timestamps, financial impact, near-miss flag, related business unit, process, product, status, workflow (reported, validated, closed), and optional soft deletion data (deleted_at and deleted_by). Soft deletion is critical for preserving historical data while enabling safe removal of erroneous entries.
-* * Risks: include a textual description, risk category, association with business units, processes, and products, and inherent/residual likelihood and impact ratings (1–5).
-* * Controls: Describe existing risk mitigation measures, their effectiveness (1–5), associated business processes, and creation metadata.
-* * Measures: include corrective or preventive actions, responsible user, deadline, status, creation and update timestamps, closure comments, and ability to link to incidents or risks.
-* * Key risk indicators (KRIs): represent measurable metrics tied to risks, with thresholds for green/amber/red levels, measurement frequency, responsible users, and a log of historical measurements (kri_measurement table).
+  * Incidents (loss event): represent operational risk events, including title, description, occurrence and discovery timestamps, financial impact, near-miss flag, related business unit, process, product, status, workflow (reported, validated, closed), and optional soft deletion data (deleted_at and deleted_by). Soft deletion is critical for preserving historical data while enabling safe removal of erroneous entries.
+  * Risks: include a textual description, risk category, association with business units, processes, and products, and inherent/residual likelihood and impact ratings (1–5).
+  * Controls: Describe existing risk mitigation measures, their effectiveness (1–5), associated business processes, and creation metadata.
+  * Measures: include corrective or preventive actions, responsible user, deadline, status, creation and update timestamps, closure comments, and ability to link to incidents or risks.
+  * Key risk indicators (KRIs): represent measurable metrics tied to risks, with thresholds for green/amber/red levels, measurement frequency, responsible users, and a log of historical measurements (kri_measurement table).
 * Link tables (many-to-many):
-* * incident_risk: link incidents to associated risks.
-* * incident_measure: link incidents to corrective measures.
-* * incident_cause: link incidents to multiple loss causes.
-* * risk_control: link risks to associated controls.
-* * risk_measure: link risks to preventive or corrective measures.
+  * incident_risk: link incidents to associated risks.
+  * incident_measure: link incidents to corrective measures.
+  * incident_cause: link incidents to multiple loss causes.
+  * risk_control: link risks to associated controls.
+  * risk_measure: link risks to preventive or corrective measures.
 * Reference tables:
-* * role: Defines user roles to manage permissions (e.g., Risk Manager, Business Unit Owner, Auditor).
-* * risk_category: Business-friendly classification of risks (e.g. IT risk, Compliance risk, Fraud risk, etc.).
-* * loss_cause: Identifies root causes of risk events ("why it happened").
+  * role: Defines user roles to manage permissions (e.g., Risk Manager, Business Unit Owner, Auditor).
+  * risk_category: Business-friendly classification of risks (e.g. IT risk, Compliance risk, Fraud risk, etc.).
+  * loss_cause: Identifies root causes of risk events ("why it happened").
 
 To satisfy regulatory and operational needs, the design includes a soft deletion mechanism for sensitive tables like incidents (prevents accidental data loss).
 

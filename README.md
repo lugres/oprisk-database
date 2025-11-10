@@ -1,7 +1,10 @@
 # Oprisk database project
 
-Oprisk database project is designed to automate a typical Operational Risk Management (ORM) framework of a bank or a company. It enables risk managers to work with incidents (loss events), risks, risk controls, risk mitigation measures and key risk indicators. 
-It was developed as a final project for CS50 SQL course by Harvard University in 2025.
+Oprisk Database Project is designed to automate a typical Operational Risk Management (ORM) framework used in banks and companies. It provides a structured relational database that enables risk managers to record and analyze incidents (loss events), define and assess risks, manage controls and mitigation measures, and monitor key risk indicators (KRIs).
+
+The system supports full CRUD operations and incident workflows (from reporting to closure), linkage between risk objects, and soft deletion for critical records. While advanced analytics, audit logs, and dashboards are beyond this MVP, the database provides a solid foundation for scalable risk management automation.
+
+Developed as a final project for CS50’s SQL course by Harvard University (2025).
 
 ## Specification
 
@@ -15,7 +18,7 @@ The project is composed of four files:
 - [`queries.sql`](./oprisk_db/queries.sql), which is an annotated set of `SELECT`, `UPDATE`, `DELETE`, etc. statements that users will commonly run on the Oprisk database.
 
 
-You can read comments inside the .sql files to get more details and hands-on instructions. 
+You can explore comments inside the .sql files to get more details and hands-on instructions. 
 
 ## Further enhancements
 
@@ -23,12 +26,12 @@ Later the project was further developed to include the following:
 
 1. Basel taxonomy (event types, business lines and link to internal risk categories).
 2. Entity-specific audit tables and triggers (incident_audit, measure_audit, etc.).
-3. Custom incident routing/early notifications (e.g. IT events in Retail → IT Ops Retail BU).
-4. Required fields for each stage of the incident workflow.
-5. SLA for allowed X/Y/Z days of an incident to remain in a certain state so notifications can be sent for overdue items.
+3. Custom incident routing/early notifications (e.g. IT events in Retail auto routed to IT Ops Retail BU).
+4. Stage-specific required fields – mandatory data entry for each stage of the incident workflow.
+5. SLA-based monitoring - defines allowed X/Y/Z days for an incident to remain in a given state; triggers notifications for overdue items.
 6. Simplified event types for UI to ensure early notifications for critical events.
 7. Unified notifications table for all entities (incidents, measures, KRIs, etc.).
-8. Plus some minor adjustments and enhancements.
+8. Plus some minor adjustments and refinements.
 
 Here're the updated sql files:
 - [`schema_v0_8_mvp.sql`](./oprisk_db_enhanced/schema_v0_8_mvp.sql), which is an annotated set of `CREATE TABLE`, `CREATE INDEX`, `CREATE VIEW`, etc. statements that compose the database’s schema.
@@ -36,4 +39,4 @@ Here're the updated sql files:
 - [`queries_v0_8_mvp.sql`](./oprisk_db_enhanced/queries_v0_8_mvp.sql), which is an annotated set of `SELECT`, `UPDATE`, `DELETE`, etc. statements that users will commonly run on the Oprisk database.
 
 
-These updated Oprisk database files are planned to be used as a foundation for an MVP of a full-fledged web application.
+These enhanced Oprisk database files are intended to serve as the foundation for the MVP of a full-fledged web application.
